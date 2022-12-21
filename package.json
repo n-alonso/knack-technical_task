@@ -1,0 +1,14 @@
+{
+  "name": "coding-exercise-master",
+  "version": "1.0.0",
+  "description": "Tech task for Knack Support Engineer role application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nicolas Alonso",
+  "license": "ISC",
+  "dependencies": {
+    "tree-traversal": "^1.1.2"
+  }
+}

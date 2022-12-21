@@ -1,8 +1,8 @@
 const fs = require('fs')
 const treeTraversal = require('tree-traversal')
+const utilities = require('./utilities')
 
-let rawData = fs.readFileSync('./mock_application.json')
-let mock_application = JSON.parse(rawData)
+utilities.readFromFile('./mock_application.json')
 
 let objects = mock_application.versions[0].objects
 let scenes = mock_application.versions[0].scenes
@@ -34,10 +34,6 @@ const deleteDuplicatedDocuments = (arrayOfObjects) => {
         arrayOfObjects.splice(element, 1)
     })
 
-    // STEP 4 - Write the content back to the file to overwrite the corrupted version
-
-    const sanitisedData = JSON.stringify(mock_application)
-    fs.writeFileSync('./mock_application-fixed.json', sanitisedData)
 }
 
 deleteDuplicatedDocuments(objects)
@@ -47,7 +43,7 @@ deleteDuplicatedDocuments(scenes)
 
 /* Check Duplicated Properties (Tree Traversal) */
 
-// Create a root node
+// STEP 1 - Create a root node
 
 let rootNode = {
     "data": {
@@ -55,8 +51,50 @@ let rootNode = {
     }
 }
 
-console.log(rootNode.data.versions)
+// STEP 2 - Iterate through the Tree from the Root
 
-const treeTraversal = (rootNode) => {
-    Object.keys(rootNode);
+const treeTraversal = (parentNode) => {
+
+    const nodeType = typeof parentNode
+
+    switch(nodeType) {
+
+        case 'object':
+
+            Object.keys(parentNode).forEach((key, index) => {
+
+                if (typeof key === 'array' || typeof key === "object") {
+        
+                    treeTraversal(key)
+        
+                } else if (parentNode.indexOf(key) !== index)  {
+        
+                    parentNode.splice(index, 1)
+        
+                }
+            })
+
+            break;
+
+        case 'array':
+
+            parentNode.forEach(object => {
+
+                treeTraversal(object)
+
+            })
+
+            break;
+
+    }
+    
+
 }
+
+treeTraversal(rootNode)
+
+
+
+/* Finally write the results to a Sanitised File */
+
+utilities.writeToFile(mock_application, './mock_application-sanitised.json')

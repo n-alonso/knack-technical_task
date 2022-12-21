@@ -7,6 +7,13 @@
     "test": "mocha --exit",
     "start": "node app.js"
   },
+  "directories": {
+    "test": "test"
+  },
   "author": "Nicolas Alonso",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/n-alonso/knack-technical_task.git"
+  },
 }

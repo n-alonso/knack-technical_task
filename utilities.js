@@ -12,6 +12,5 @@ const writeToFile = (data, path) => {
 
 
 module.exports = {
-    readFromFile,
     writeToFile
 }

@@ -8,6 +8,8 @@ The given task is to take a set of JSON data (similar to a MongoDB document/coll
 - No repeated User Created Objects
 - No repeated data points within objects
 
+The task instructions can be checked in the file `./TASK_INSTRUCTIONS.md` within this repository.
+
 
 ## Tech Stack
 

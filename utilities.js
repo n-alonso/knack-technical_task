@@ -1,11 +1,6 @@
+const fs = require('fs')
 
 
-const readFromFile = (path) => {
-
-    let rawData = fs.readFileSync(path)
-    let mock_application = JSON.parse(rawData)
-
-}
 
 const writeToFile = (data, path) => {
 
@@ -13,6 +8,8 @@ const writeToFile = (data, path) => {
     fs.writeFileSync(path, sanitisedData)
 
 }
+
+
 
 module.exports = {
     readFromFile,

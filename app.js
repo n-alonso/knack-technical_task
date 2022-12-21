@@ -1,8 +1,8 @@
 const fs = require('fs')
-const treeTraversal = require('tree-traversal')
 const utilities = require('./utilities')
 
-utilities.readFromFile('./mock_application.json')
+let rawData = fs.readFileSync(`./${process.argv[2]}`) // Accept the file to read from the terminal argument
+let mock_application = JSON.parse(rawData)
 
 let objects = mock_application.versions[0].objects
 let scenes = mock_application.versions[0].scenes
@@ -67,7 +67,7 @@ const treeTraversal = (parentNode) => {
         
                     treeTraversal(key)
         
-                } else if (parentNode.indexOf(key) !== index)  {
+                } else if (Object.keys(parentNode).indexOf(key) !== index)  {
         
                     parentNode.splice(index, 1)
         

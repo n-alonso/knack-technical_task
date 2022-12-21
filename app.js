@@ -97,4 +97,4 @@ treeTraversal(rootNode)
 
 /* Finally write the results to a Sanitised File */
 
-utilities.writeToFile(mock_application, './sanitised-data.json')
+utilities.writeToFile(mock_application, './data/sanitised-data.json')

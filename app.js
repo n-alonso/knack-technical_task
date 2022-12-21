@@ -1,5 +1,4 @@
 const fs = require('fs')
-const utilities = require('./utilities')
 
 let rawData = fs.readFileSync(`./${process.argv[2]}`) // Accept the file to read from the terminal argument
 let mock_application = JSON.parse(rawData)
@@ -97,4 +96,5 @@ treeTraversal(rootNode)
 
 /* Finally write the results to a Sanitised File */
 
-utilities.writeToFile(mock_application, './data/sanitised-data.json')
+const sanitisedData = JSON.stringify(mock_application)
+fs.writeFileSync('./data/sanitised-data.json', sanitisedData)

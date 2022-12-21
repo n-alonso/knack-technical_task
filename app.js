@@ -97,4 +97,4 @@ treeTraversal(rootNode)
 /* Finally write the results to a Sanitised File */
 
 const sanitisedData = JSON.stringify(mock_application)
-fs.writeFileSync('./data/sanitised-data.json', sanitisedData)
+fs.writeFileSync('./data/clean_application.json', sanitisedData)

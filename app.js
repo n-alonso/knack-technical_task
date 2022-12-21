@@ -45,7 +45,7 @@ deleteDuplicatedDocuments(scenes)
 
 
 
-/* Check Duplicated Properties (abstract, pass objects/scenes as argument) */
+/* Check Duplicated Properties (Tree Traversal) */
 
 // Create a root node
 

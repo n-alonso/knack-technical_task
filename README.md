@@ -16,7 +16,7 @@ The task instructions can be checked in the file `./TASK_INSTRUCTIONS.md` within
 Tech-stack:
 - Implementation code:
   - Node.js
-- Testing code: __[Coming Soon]__
+- Testing code:
   - Mocha
   - Chai
 - Deployment:
@@ -29,8 +29,14 @@ This project assumes that you have Node.js properly installed in your computer.
 To install the project, follow these steps:
 - Clone this project locally `git clone <repository_url>`
 - Navigate to it `cd <dir_path>`
-- Run the project `npm start <file_path>` where `<file_path>` refers to which file you want to sanitise
-- Test the project `npm test` __[Coming Soon]__
+- Install the project dependencies `npm install`
+
+
+## Instructions
+
+- Run the project `npm start` (The start script will automatically select mock_application.json file to sanitise)
+- Test the project `npm test` (The test script will automatically select test_application.json file to sanitise)
+- Run the project sanitising any other file you'd like `node controller/app.js <file_name>` (Where the file needs to live within the `model` directory)
 
 
 ## Note

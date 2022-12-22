@@ -4,8 +4,8 @@
   "description": "Tech task for Knack Support Engineer role application",
   "main": "app.js",
   "scripts": {
-    "test": "mocha --exit",
-    "start": "node app.js"
+    "test": "mocha",
+    "start": "node controller/app.js mock_application.json"
   },
   "directories": {
     "test": "test"
@@ -15,5 +15,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/n-alonso/knack-technical_task.git"
+  },
+  "dependencies": {
+    "chai": "^4.3.7"
   }
 }

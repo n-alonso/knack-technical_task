@@ -1,0 +1,24 @@
+{
+    "key": "value",
+    "versions": [
+        {
+            "something": "value",
+            "objects": [
+                {
+                    "key": "value",
+                    "name": "test"
+                }
+            ],
+            "scenes": [
+                {
+                    "key": "value",
+                    "name": "test"
+                },
+                {
+                    "anotherKey": "value",
+                    "name": "test2"
+                }
+            ]
+        }
+    ]
+}

@@ -1,10 +1,12 @@
 const fs = require('fs')
 
-let rawData = fs.readFileSync(`./${process.argv[2]}`) // Accept the file to read from the terminal argument
-let mock_application = JSON.parse(rawData)
+// Accept the file to read from a terminal argument
+const rawData = fs.readFileSync(`./model/${process.argv[2]}`)
+let mock_application = JSON.parse(rawData)  
 
-let objects = mock_application.versions[0].objects
-let scenes = mock_application.versions[0].scenes
+const objects = mock_application.versions[0].objects
+const scenes = mock_application.versions[0].scenes
+
 
 
 /* Check Duplicated Objects */
@@ -33,10 +35,12 @@ const deleteDuplicatedDocuments = (arrayOfObjects) => {
         arrayOfObjects.splice(element, 1)
     })
 
+    return arrayOfObjects
+
 }
 
-deleteDuplicatedDocuments(objects)
-deleteDuplicatedDocuments(scenes)
+const cleanObjects = deleteDuplicatedDocuments(objects)
+const cleanScenes = deleteDuplicatedDocuments(scenes)
 
 
 
@@ -44,7 +48,7 @@ deleteDuplicatedDocuments(scenes)
 
 // STEP 1 - Create a root node
 
-let rootNode = {
+const rootNode = {
     "data": {
         ...mock_application
     }
@@ -96,5 +100,15 @@ treeTraversal(rootNode)
 
 /* Finally write the results to a Sanitised File */
 
-const sanitisedData = JSON.stringify(mock_application)
-fs.writeFileSync('./data/clean_application.json', sanitisedData)
+const sanitisedData = JSON.stringify(mock_application, null, 4)
+fs.writeFileSync('./model/clean_application.json', sanitisedData)
+
+
+
+/* Export results for testing */
+
+module.exports = {
+    cleanObjects,
+    cleanScenes,
+    mock_application
+}
